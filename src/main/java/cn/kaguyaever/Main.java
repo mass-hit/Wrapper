@@ -1,17 +1,17 @@
 package cn.kaguyaever;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import cn.kaguyaever.utils.RandomObject;
+import cn.kaguyaever.utils.Wrapper;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    public static void main(String[] args) throws NoSuchFieldException {
+        Object o1 = RandomObject.getObject();
+        Object o2 = RandomObject.getObject();
+        Wrapper wrapper = Wrapper.getWrapper(o1.getClass());
+        String[] fields = wrapper.getPropertyNames();
+        for (String field : fields) {
+            System.out.println("Object1." + field + "=" + wrapper.getPropertyValue(o1,field));
+            System.out.println("Object2." + field + "=" + wrapper.getPropertyValue(o2,field));
         }
     }
 }
