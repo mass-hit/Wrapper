@@ -10,4 +10,12 @@ public class Item implements Serializable {
     private String itemName;
     private Double price;
     private Boolean delete;
+
+    public String idAndName() {
+        return id + "," + itemName;
+    }
+
+    public Double itemPrice(Integer count) {
+        return price * count;
+    }
 }
